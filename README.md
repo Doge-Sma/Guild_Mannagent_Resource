@@ -51,7 +51,7 @@ Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feit
 - Contratar Funcionários.
 
 Equipe:
-- Annielle Crispime e Medeiros **(PO, Gerente de Projetos, Dev)
+- Annielle Crispime e Medeiros **(PO, Gerente de Projetos, Dev)**
 - Jean Carlos Ferreira da Silva Filho **(Desesenvolvimento)**
 
 **Status do Projeto**
