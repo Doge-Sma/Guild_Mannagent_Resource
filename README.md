@@ -54,5 +54,5 @@ Equipe:
 - Annielle Crispime e Medeiros **(PO, Gerente de Projetos, Dev)**
 - Jean Carlos Ferreira da Silva Filho **(Desesenvolvimento)**
 
-**Status do Projeto**
+**Status do Projeto:**
 Em Desenvolvimento
