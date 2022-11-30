@@ -50,6 +50,9 @@ Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feit
 - Melhorar Funcionários.
 - Contratar Funcionários.
 
+## Modelo entidade relacionamento
+![Modelo entidade-relacionamento](./Conceitual_Guild.png)
+
 Equipe:
 - Annielle Crispime e Medeiros **(PO, Gerente de Projetos, Dev)**
 - Jean Carlos Ferreira da Silva Filho **(Desesenvolvimento)**
