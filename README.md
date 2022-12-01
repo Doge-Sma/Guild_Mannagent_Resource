@@ -27,7 +27,6 @@ Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feit
 - Alternar rank da guilda 
 - Alterar nome da guilda
 - Alterar dinheiro da guilda
-- Funcionário EndPoint
 - Cadastrar Funcionário
 - Listar todos os funcionários de uma guilda
 - Buscar funcionario por Id 
