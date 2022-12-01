@@ -22,33 +22,46 @@ tem um controle de status dos aventureiros: rank, classe, itens.
 Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feitas, Missões Fracassadas, Missões Desistentes, Sorte do Aventureiro. Além de proporcionar melhorias para seus aventureiros, dado o nível da guilda. Onde o líder da guilda/administrador pode proporcionar outras estalagens com a de dormir na guilda, o aventureiro se divertir na guilda para melhorar o fator sorte nas missões, o de ferreiro para melhoria de equipamentos e melhores alquimistas para vender poções que ajudem mais seus aventureiros. Para esses estabelecimentos vão existir dois tipos de melhorias, a de estrutura, onde podemos contratar mais funcionários e a de melhoria diretamente no funcionário atual por nível. 
 
 **Backlog** (Lista de Requisitos):
-- Cadastrar itens.
-- Cadastrar Missão.
-- Cadastrar Aventureiro (Guerreiro, Mago ou Assassino).
-- Cadastrar Administrador.
-- Cadastro de Funcionários.
-- Mudar Rank Aventureiro.
-- Começar Missão.
-- Concluir Missão.
-- Desistir Missão.
-- Usar Item (Missão).
-- Comprar Item.
-- Usar Item.
-- Divertir (Salão de Festas).
-- Equipar Arma.
-- Melhorar Arma.
-- Comprar Arma.
-- Dormir Guilda.
-- Listar Aventureiros. 
-- Listar Itens da Guilda.
-- Listar Missões.
-- Log da Guilda.
-- Log de Aventureiro.
-- Log de Missões.
-- Doar Dinheiro Para Guilda.
-- Melhorar Estrutura (Salão de Festas, Estalagem, Casa de Fundição, Casas de Poções).
-- Melhorar Funcionários.
-- Contratar Funcionários.
+- Cadastrar guilda
+- Buscar guilda por id
+- Alternar rank da guilda 
+- Alterar nome da guilda
+- Alterar dinheiro da guilda
+- Funcionário EndPoint
+- Cadastrar Funcionário
+- Listar todos os funcionários de uma guilda
+- Buscar funcionario por Id 
+- Alterar funcionario
+- Cadastrar missão 
+- Listar todas as missoes de uma guilda
+- Listar todas as missoes concluídas de uma guilda 
+- Listar todas as missões incompletas de uma guilda
+- Listar todas as missões Fracassadas de uma guilda
+- Cadastrar Aventureiro
+- Atualizar aventureiro
+- Comprar Item 
+- Equipar Item
+- Realizar Missão
+- Verificar valor da Carteira
+- Melhorar Inventario
+- Buscar item de aventureiro
+- Listar todos os itens de um aventureiro
+- Listar todos os itens equipados de um aventureiro
+- Listar todos os itens não equipados de um aventureiro
+- Cadastrar Loja 
+- Atualizar Loja
+- Listar todos os itens de uma loja 
+- Listar os itens em estoque de uma loja
+- Listar os itens indisponivel de uma loja
+- Cadastrar Item
+- Melhorar Item
+- Cadastrar Administrador 
+- Atualizar Administrador 
+- Remover Administrador
+- Listar Todos os Administradores 
+- Listar Todos os administradores de uma Guilda
+- Listar Todas as Guildas de um Administrador 
+- Apagar uma guilda de um administrador
 
 ## Modelo entidade relacionamento
 ![Modelo entidade-relacionamento](./Conceitual_Guild.png)
