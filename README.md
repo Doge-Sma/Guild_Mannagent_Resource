@@ -147,7 +147,7 @@ Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feit
 
 Equipe:
 - Annielle Crispime e Medeiros **(PO, Gerente de Projetos, Dev)**
-- Jean Carlos Ferreira da Silva Filho **(Desesenvolvimento)**
+- Jean Carlos Ferreira da Silva Filho **(Arquiteto, Desesenvolvedor)**
 
 **Status do Projeto:**
 Em Desenvolvimento
