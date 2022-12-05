@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.guild.mannagent.repository.AventureiroRepository;
 import com.guild.mannagent.entity.Aventureiro;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,6 +17,10 @@ public class AventureiroService {
 /* cadastrar aventureiro
 atualizar aventureiro
 listar aventureiro */
+
+public List<Aventureiro> listAventureiros(){
+    return aventureiroRepository.findAll();
+}
 
 public Aventureiro createAventureiro (Aventureiro aventureiro){
     return this.aventureiroRepository.save(aventureiro);
@@ -31,6 +37,6 @@ public Aventureiro updateAventureiro (Aventureiro aventureiro, Long aventureiroI
             return this.aventureiroRepository.save(a);
         }
         return null;
-
 }
+
 }
