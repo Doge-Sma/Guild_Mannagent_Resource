@@ -44,6 +44,7 @@ Vai ter um sistema de controle dos status no Aventureiro: Stamina, Missões Feit
 - Verificar valor da Carteira
 - Melhorar Inventario
 - Buscar item de aventureiro
+- Listar todos os aventureiros
 - Listar todos os itens de um aventureiro
 - Listar todos os itens equipados de um aventureiro
 - Listar todos os itens não equipados de um aventureiro
