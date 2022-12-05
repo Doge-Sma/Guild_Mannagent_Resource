@@ -29,9 +29,9 @@ private String Nome;
 private String Classe;
 
 @Column(name = "carteira")
-private double Carteira;
+private Long Carteira;
 
 @Column(name = "rank")
-private int Rank;
+private Long Rank;
     
 }
