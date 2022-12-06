@@ -7,10 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
@@ -32,6 +35,7 @@ private Long rank;
 @Column 
 private Long valo;
 
-//@ManyToOne
-//@JoinColumn (name = )
+@OneToMany(mappedBy = "item")
+private Collection<Inventario> inventario;
+
 }
