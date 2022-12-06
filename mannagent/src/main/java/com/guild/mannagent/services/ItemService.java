@@ -20,17 +20,27 @@ public class ItemService {
 
 /*
 Comprar Item -> ver se tem money na carteira de aventureiro
-Equipar Item 
-Buscar item de aventureiro
+Equipar Item -> update
+Buscar item de aventureiro -> precisa de list
 Cadastrar Item
 Melhorar Item
 */
 
     public Item buyItem(Long aventureiroId, Long itemId){
-        Optional<Aventureiro> aventureiroOptional = this.aventureiroRepository.findById(aventureiroId)
+        Optional<Aventureiro> aventureiroOptional = this.aventureiroRepository.findById(aventureiroId);
         if(!aventureiroOptional.isPresent()){
             return null; //adicionar tratamento de erros, o erro tem ser 404, user not found
         }
+        Optional<Item> itemOptional = this.itemRepository.findById(itemId);
+        if(!itemOptional.isPresent()){
+            return null; //adicionar tratamento de erros, o erro tem ser 404
+        }
+        Aventureiro aventureiro = aventureiroOptional.get();
+        Item item = itemOptional.get();
+        if (aventureiro.getCarteira()>=item.getValor()){
+            return null; //diminuir valor da carteira teria que setar a qual inventario o item pertence
+        }
+
         return null;
     }
 
