@@ -33,7 +33,7 @@ private String nome;
 private Long rank;
 
 @Column 
-private Long valo;
+private Long valor;
 
 @OneToMany(mappedBy = "item")
 private Collection<Inventario> inventario;
