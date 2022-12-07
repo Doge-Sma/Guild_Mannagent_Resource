@@ -29,6 +29,10 @@ Cadastrar Item
 Melhorar Item
 */
 
+    public Item criarItem(Item item){
+        return itemRepository.save(item);
+    }
+
     public List<Item> listarItens(){
         return  itemRepository.findAll();
     }

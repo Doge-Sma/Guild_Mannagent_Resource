@@ -42,4 +42,6 @@ private Collection<Item> itens;
 @OneToMany(mappedBy = "inventarioEquipado")
 private Collection<Item> itensEquipados;
 
+
+
 }
