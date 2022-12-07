@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("/aventureiros")
 @AllArgsConstructor
-@Api(description = "Admin Services HTTP methods", tags = "Admin Services")
+@Api(description = "Aventureiro Services HTTP methods", tags = "Aventureiro Services")
 public class AventureiroController {
 
     AventureiroService aventureiroService;
