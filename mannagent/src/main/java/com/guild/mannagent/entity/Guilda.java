@@ -7,23 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@Table(name= "tb_missao")
-public class Missao {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "missao_id")
-    private Long missaoId;
+@Entity
+@Table
+public class Guilda {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Guilda")
+    private Long id;
     @Column
     private String nome;
-
     @Column
-    private Long rank;
+    private String Rank;
+    
 }

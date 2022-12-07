@@ -1,7 +1,6 @@
 package com.guild.mannagent.services;
 
 import com.guild.mannagent.entity.Aventureiro;
-import com.guild.mannagent.entity.Inventario;
 import com.guild.mannagent.entity.Item;
 import com.guild.mannagent.repository.AventureiroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
