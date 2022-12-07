@@ -21,7 +21,7 @@ public class Inventario {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "inventario_id")
-private Long inventarioId;
+private Long Id;
 
 @Column
 private Long rank;

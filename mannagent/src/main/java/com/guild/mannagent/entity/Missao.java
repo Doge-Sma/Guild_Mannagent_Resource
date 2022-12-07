@@ -19,7 +19,7 @@ public class Missao {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "missao_id")
-    private Long missaoId;
+    private Long id;
 
     @Column
     private String nome;

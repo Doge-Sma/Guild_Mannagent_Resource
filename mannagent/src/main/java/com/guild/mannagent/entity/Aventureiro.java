@@ -19,7 +19,7 @@ public class Aventureiro {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "aventureiro_id")
-private Long aventureiroId;
+private Long id;
 
 @Column(name = "nome")
 private String nome;

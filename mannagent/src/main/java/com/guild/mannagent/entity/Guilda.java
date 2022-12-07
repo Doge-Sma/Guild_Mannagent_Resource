@@ -24,6 +24,6 @@ public class Guilda {
     @Column
     private String nome;
     @Column
-    private String Rank;
+    private Long Rank;
     
 }

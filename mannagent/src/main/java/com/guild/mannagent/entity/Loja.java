@@ -24,6 +24,6 @@ public class Loja {
     @Column
     private String Nome;
     @Column
-    private String Rank;
+    private Long Rank;
     
 }

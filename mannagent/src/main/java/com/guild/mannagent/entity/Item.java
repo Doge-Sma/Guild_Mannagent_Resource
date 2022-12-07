@@ -22,7 +22,7 @@ public class Item {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 @Column(name = "item_id")
-private Long inventarioId;
+private Long id;
 
 @Column
 private String nome;
