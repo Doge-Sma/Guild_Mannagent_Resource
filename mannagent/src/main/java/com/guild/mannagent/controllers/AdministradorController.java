@@ -14,6 +14,7 @@ import com.guild.mannagent.entity.Administrador;
 import com.guild.mannagent.services.AdministradorService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -24,6 +25,7 @@ public class AdministradorController {
     AdministradorService administradorService;
     ModelMapper modelMapper;
     
+    @ApiOperation(value = "Find all Administradores")
     @GetMapping
     public ResponseEntity<List<AdministradorDTO>> listarAdministradores (){
         return ResponseEntity.ok(convertListDTO(administradorService.listarAdministradores()));

@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +13,7 @@ import com.guild.mannagent.entity.Loja;
 import com.guild.mannagent.services.LojaService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -20,6 +23,13 @@ import lombok.AllArgsConstructor;
 public class LojaController {
     LojaService lojaService;
     ModelMapper modelMapper;
+
+
+    @ApiOperation(value = "Find all Lojas")
+    @GetMapping
+    public ResponseEntity<List<LojaDTO>> listarLojas (){
+        return ResponseEntity.ok(convertListDTO(lojaService.listarLojas()));
+    }
 
     public List<LojaDTO> convertListDTO(List<Loja> lojas){
         List<LojaDTO> save = new ArrayList();

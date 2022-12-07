@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +13,7 @@ import com.guild.mannagent.entity.Funcionario;
 import com.guild.mannagent.services.FuncionarioService;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -21,6 +24,12 @@ public class FuncionarioController {
     FuncionarioService funcionarioService;
     ModelMapper modelMapper;
 
+
+    @ApiOperation(value = "Find all Funcionarios")
+    @GetMapping
+    public ResponseEntity<List<FuncionarioDTO>> listarFuncionarios (){
+        return ResponseEntity.ok(convertListDTO(funcionarioService.listarFuncionarios()));
+    }
 
     public List<FuncionarioDTO> convertListDTO(List<Funcionario> funcionarios){
         List<FuncionarioDTO> save = new ArrayList();

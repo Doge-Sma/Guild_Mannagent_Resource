@@ -8,9 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.guild.mannagent.repository.ItemRepository;
 
+import lombok.AllArgsConstructor;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ItemService {
     @Autowired
     private  ItemRepository itemRepository;
@@ -24,6 +28,10 @@ Buscar item de aventureiro -> precisa de list
 Cadastrar Item
 Melhorar Item
 */
+
+    public List<Item> listarItens(){
+        return  itemRepository.findAll();
+    }
 
     public Item buyItem(Long aventureiroId, Long itemId){
         Optional<Aventureiro> aventureiroOptional = this.aventureiroRepository.findById(aventureiroId);

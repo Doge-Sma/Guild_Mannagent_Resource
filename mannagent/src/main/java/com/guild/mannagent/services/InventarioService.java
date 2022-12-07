@@ -6,12 +6,17 @@ import org.springframework.stereotype.Service;
 import com.guild.mannagent.entity.Inventario;
 import com.guild.mannagent.repository.InventarioRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class InventarioService {
     @Autowired
     private InventarioRepository inventarioRepository;
+
+    public List<Inventario> listarInventarios(){
+        return inventarioRepository.findAll();
+    }
     
     //Melhorar Inventario
     public Inventario updateInventario (Inventario inventario, Long inventarioId){
