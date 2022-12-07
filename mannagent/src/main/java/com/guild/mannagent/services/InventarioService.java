@@ -1,18 +1,24 @@
 package com.guild.mannagent.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.guild.mannagent.entity.Aventureiro;
 import com.guild.mannagent.entity.Inventario;
+import com.guild.mannagent.entity.Item;
 import com.guild.mannagent.repository.InventarioRepository;
+
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class InventarioService {
-    @Autowired
+
     private InventarioRepository inventarioRepository;
+    private AventureiroService aventureiroService;
+    private ItemService itemService;
 
     public List<Inventario> listarInventarios(){
         return inventarioRepository.findAll();
@@ -28,6 +34,27 @@ public class InventarioService {
             }
             return null;
     }
+
+    public Item buscarItem(Long idAventureiro, Long idItem){
+        Inventario iventario = aventureiroService.buscarAventureiroPorId(idAventureiro).getInventario();
+
+        if(iventario.getItens().contains(itemService.buscarItemPorId(idItem))){
+            return itemService.buscarItemPorId(idItem);
+        }
+        return null;
+    }
+
+    public List<Item> listarItensdeAventureiro(Long idAventureiro){
+        Aventureiro aventureiro = aventureiroService.buscarAventureiroPorId(idAventureiro);
+        return (List<Item>) inventarioRepository.findByAventureiro(aventureiro).getItens();
+    }
+
+    public List<Item> listarItensEquipados(Long idAventureiro){
+        Aventureiro aventureiro = aventureiroService.buscarAventureiroPorId(idAventureiro);
+        return (List<Item>) inventarioRepository.findByAventureiro(aventureiro).getItensEquipados();
+    }
+
+
 
 
 }

@@ -11,5 +11,6 @@ public class FuncionarioDTO {
     private Long id;
     private String nome;
     private String cargo;
+    private Long idGuilda;
 
 }

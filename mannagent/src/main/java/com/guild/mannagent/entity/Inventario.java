@@ -1,12 +1,15 @@
 package com.guild.mannagent.entity;
 
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,8 +32,14 @@ private Long rank;
 @Column
 private Long tamanho;
 
-@ManyToOne
-@JoinColumn(name = "item_id")
-private Item item;
+@OneToOne
+@JoinColumn(name = "id_Aventureiro")
+private Aventureiro aventureiro;
+
+@OneToMany(mappedBy = "inventario")
+private Collection<Item> itens;
+
+@OneToMany(mappedBy = "inventarioEquipado")
+private Collection<Item> itensEquipados;
 
 }

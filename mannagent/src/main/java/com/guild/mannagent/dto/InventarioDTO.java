@@ -11,5 +11,6 @@ public class InventarioDTO {
     private Long id;
     private Long tamanho;
     private Long rank;
+    private Long idAventureiro;
 
 }

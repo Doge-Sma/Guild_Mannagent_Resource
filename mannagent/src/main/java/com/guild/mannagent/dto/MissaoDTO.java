@@ -11,4 +11,5 @@ public class MissaoDTO {
     private Long id;
     private String nome;
     private Long rank;
+    private Long idGuilda;
 }

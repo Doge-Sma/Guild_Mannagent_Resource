@@ -1,34 +1,44 @@
 package com.guild.mannagent.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import com.guild.mannagent.repository.AventureiroRepository;
+
+import lombok.AllArgsConstructor;
+
 import com.guild.mannagent.entity.Aventureiro;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class AventureiroService {
-    @Autowired
+
     private AventureiroRepository aventureiroRepository;
 
-/* cadastrar aventureiro
-atualizar aventureiro
-listar aventureiro */
+    /*
+     * cadastrar aventureiro
+     * atualizar aventureiro
+     * listar aventureiro
+     */
 
-public List<Aventureiro> listAventureiros(){
-    return aventureiroRepository.findAll();
-}
+    public List<Aventureiro> listAventureiros() {
+        return aventureiroRepository.findAll();
+    }
 
-public Aventureiro createAventureiro (Aventureiro aventureiro){
-    return this.aventureiroRepository.save(aventureiro);
-}
+    public Aventureiro buscarAventureiroPorId(Long id){
+        return aventureiroRepository.findById(id).get();
+    }
 
-public Aventureiro updateAventureiro (Aventureiro aventureiro, Long aventureiroId){
-    Optional<Aventureiro> aventureiroTemp = this.aventureiroRepository.findById(aventureiroId);
-        if(aventureiroTemp.isPresent()){
+    public Aventureiro createAventureiro(Aventureiro aventureiro) {
+        return this.aventureiroRepository.save(aventureiro);
+    }
+
+    public Aventureiro updateAventureiro(Aventureiro aventureiro, Long aventureiroId) {
+        Optional<Aventureiro> aventureiroTemp = this.aventureiroRepository.findById(aventureiroId);
+        if (aventureiroTemp.isPresent()) {
             Aventureiro a = aventureiroTemp.get();
             a.setNome(aventureiro.getNome());
             a.setClasse(aventureiro.getClasse());
@@ -37,6 +47,8 @@ public Aventureiro updateAventureiro (Aventureiro aventureiro, Long aventureiroI
             return this.aventureiroRepository.save(a);
         }
         return null;
-}
+    }
+
+
 
 }

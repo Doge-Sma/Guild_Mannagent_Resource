@@ -33,6 +33,10 @@ Melhorar Item
         return  itemRepository.findAll();
     }
 
+    public Item buscarItemPorId(Long id){
+        return itemRepository.findById(id).get();
+    }
+
     public Item buyItem(Long aventureiroId, Long itemId){
         Optional<Aventureiro> aventureiroOptional = this.aventureiroRepository.findById(aventureiroId);
         if(!aventureiroOptional.isPresent()){

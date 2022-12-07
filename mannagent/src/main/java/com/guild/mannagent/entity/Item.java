@@ -5,13 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
@@ -33,7 +32,12 @@ private Long rank;
 @Column 
 private Long valor;
 
-@OneToMany(mappedBy = "item")
-private Collection<Inventario> inventario;
+@ManyToOne
+@JoinColumn(name = "iventario_id")
+private Inventario inventario;
+
+@ManyToOne
+@JoinColumn(name = "inventarioEquipado_id")
+private Inventario inventarioEquipado;
 
 }

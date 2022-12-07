@@ -3,8 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +18,7 @@ import com.guild.mannagent.services.MissaoService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -30,6 +35,42 @@ public class MissaoController {
     public ResponseEntity<List<MissaoDTO>> listarMissoes (){
         return ResponseEntity.ok(convertListDTO(missaoService.listarMissoes()));
     }
+
+    @ApiOperation(value = "Find Missao by Id")
+    @GetMapping("/{id}")
+    public ResponseEntity<MissaoDTO> buscarMissaoPorId(@PathVariable Long id){
+        return ResponseEntity.ok(convertDTO(missaoService.buscarMissaoPorId(id)));
+    }
+
+    @ApiOperation(value = "Find Missoes by Guilda id")
+    @GetMapping("/guilda/{id}")
+    public ResponseEntity<List<MissaoDTO>> buscarMissoesPorGuildaId(@PathVariable Long id){
+        return ResponseEntity.ok(convertListDTO(missaoService.encontrarMissaoPorGuildaId(id)));
+    }
+
+    @ApiOperation(value = "Find Missoes by Status from a guild Id")
+    @GetMapping("{status}/guilda/{id}")
+    public ResponseEntity<List<MissaoDTO>> buscarMissoesPorStatusPorGuilda(@PathVariable String status, @PathVariable Long id){
+        return ResponseEntity.ok(convertListDTO(missaoService.encontrarMissaoPorStatus(status, id)));
+    }
+
+    @ApiOperation(value ="Save Missao")
+    @PostMapping
+    public ResponseEntity<MissaoDTO> salvarMissao(@RequestBody MissaoDTO missaoDTO){
+        Missao missao = convertEntity(missaoDTO);
+        Missao salvo = missaoService.salvarMissao(missao);
+        return new ResponseEntity<MissaoDTO>(convertDTO(salvo),HttpStatus.CREATED);
+    }
+
+    @ApiOperation(value = "Update Missao")
+    @PutMapping("/{id}")
+    public ResponseEntity<MissaoDTO> atualizarMissao(@RequestBody MissaoDTO missaoDTO, @PathVariable Long id){
+        Missao missao = convertEntity(missaoDTO);
+        Missao atualizada = missaoService.alterarMissao(missao, id);
+        return ResponseEntity.ok(convertDTO(atualizada));
+    }
+
+
 
     public List<MissaoDTO> convertListDTO(List<Missao> missoes){
         List<MissaoDTO> save = new ArrayList();

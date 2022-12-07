@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class GuildaDTO {
     private Long id;
     private String nome;
+    private Long carteira;
     private Long rank;
 }
