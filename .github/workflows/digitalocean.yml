@@ -38,6 +38,7 @@ jobs:
           # Update image
           docker pull registry.digitalocean.com/guildrm/guild-mannagent-resource:latest
           
+          
           #Stop database
           docker stop db
           
