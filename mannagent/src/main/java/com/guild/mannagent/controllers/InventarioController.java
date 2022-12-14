@@ -22,6 +22,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/inventarios")
 @AllArgsConstructor
@@ -57,7 +59,7 @@ public class InventarioController {
 
     @ApiOperation(value = "Melhorar Inventario")
     @PutMapping("{id}")
-    public ResponseEntity<InventarioDTO> melhorarInventario(@PathVariable Long id, @RequestBody InventarioDTO inventarioDTO){
+    public ResponseEntity<InventarioDTO> melhorarInventario(@Valid @PathVariable Long id, @RequestBody InventarioDTO inventarioDTO){
         Inventario inventario = convertEntity(inventarioDTO);
         Inventario salvo = inventarioService.updateInventario(inventario, id);
         return ResponseEntity.ok(convertDTO(salvo));
