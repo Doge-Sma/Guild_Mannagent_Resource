@@ -21,6 +21,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/lojas")
 @AllArgsConstructor
@@ -50,7 +52,7 @@ public class LojaController {
 
     @ApiOperation(value = "Atualizar Loja")
     @PutMapping("{id}")
-    public ResponseEntity<LojaDTO> atualizarLoja(@PathVariable Long id, @RequestBody LojaDTO lojaDTO){
+    public ResponseEntity<LojaDTO> atualizarLoja(@Valid @PathVariable Long id, @RequestBody LojaDTO lojaDTO){
         Loja loja = convertEntity(lojaDTO);
         Loja salvo = lojaService.cadastrarLoja(loja);
         return ResponseEntity.ok(convertDTO(salvo));
