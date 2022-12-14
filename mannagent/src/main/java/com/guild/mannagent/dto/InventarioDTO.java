@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class InventarioDTO {
     private Long id;
-    private Long tamanho; //falta aqui 
+    private Long tamanho;
     @Min(value = 1)
     private Long rank;
     @NotNull

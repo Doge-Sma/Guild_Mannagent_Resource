@@ -20,6 +20,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/itens")
 @AllArgsConstructor
@@ -44,7 +46,7 @@ public class ItemController {
 
     @ApiOperation(value = "Criar Item")
     @PostMapping
-    public ResponseEntity<ItemDTO> salvarItem(@RequestBody ItemDTO itemDTO){
+    public ResponseEntity<ItemDTO> salvarItem(@Valid @RequestBody ItemDTO itemDTO){
         Item item = convertEntity(itemDTO);
         Item salvo = itemService.criarItem(item);
         return new ResponseEntity<ItemDTO>(convertDTO(salvo),HttpStatus.CREATED);
