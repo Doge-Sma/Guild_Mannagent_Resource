@@ -21,6 +21,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/guildas")
 @AllArgsConstructor
@@ -43,7 +45,7 @@ public class GuildaController {
 
     @ApiOperation(value = "Save new Guilda")
     @PostMapping
-    public ResponseEntity<GuildaDTO> salvarGuilda(@RequestBody GuildaDTO guildaDTO){
+    public ResponseEntity<GuildaDTO> salvarGuilda(@Valid @RequestBody GuildaDTO guildaDTO){
         Guilda guilda = convertEntity(guildaDTO);
         Guilda salvo = guildaService.cadastrarGuilda(guilda);
         return new ResponseEntity<GuildaDTO>(convertDTO(salvo), HttpStatus.CREATED);
@@ -51,7 +53,7 @@ public class GuildaController {
 
     @ApiOperation(value = "Update an Guilda")
     @PutMapping("/{id}")
-    public ResponseEntity<GuildaDTO> atualizarGuilda(@RequestBody GuildaDTO guildaDTO, @PathVariable Long id){
+    public ResponseEntity<GuildaDTO> atualizarGuilda(@Valid @RequestBody GuildaDTO guildaDTO, @PathVariable Long id){
         Guilda guilda = convertEntity(guildaDTO);
         Guilda atualizado = guildaService.updateGuilda(id, guilda);
         return new ResponseEntity<GuildaDTO>(convertDTO(atualizado), HttpStatus.ACCEPTED);
