@@ -32,13 +32,10 @@ public class Administrador {
     @Column(name = "id_Administrador")
     private Long id;
     @Column
-    @NotBlank
     private String nome;
     @Column
-    @NotBlank
     private String senha;
     @Column
-    @Email
     private String email;
 
     @ManyToMany
