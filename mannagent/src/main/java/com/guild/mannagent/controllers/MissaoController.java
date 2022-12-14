@@ -21,6 +21,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/missoes")
 @AllArgsConstructor
@@ -56,7 +58,7 @@ public class MissaoController {
 
     @ApiOperation(value ="Save Missao")
     @PostMapping
-    public ResponseEntity<MissaoDTO> salvarMissao(@RequestBody MissaoDTO missaoDTO){
+    public ResponseEntity<MissaoDTO> salvarMissao(@Valid @RequestBody MissaoDTO missaoDTO){
         Missao missao = convertEntity(missaoDTO);
         Missao salvo = missaoService.salvarMissao(missao);
         return new ResponseEntity<MissaoDTO>(convertDTO(salvo),HttpStatus.CREATED);
@@ -64,7 +66,7 @@ public class MissaoController {
 
     @ApiOperation(value = "Update Missao")
     @PutMapping("/{id}")
-    public ResponseEntity<MissaoDTO> atualizarMissao(@RequestBody MissaoDTO missaoDTO, @PathVariable Long id){
+    public ResponseEntity<MissaoDTO> atualizarMissao(@Valid @RequestBody MissaoDTO missaoDTO, @PathVariable Long id){
         Missao missao = convertEntity(missaoDTO);
         Missao atualizada = missaoService.alterarMissao(missao, id);
         return ResponseEntity.ok(convertDTO(atualizada));
