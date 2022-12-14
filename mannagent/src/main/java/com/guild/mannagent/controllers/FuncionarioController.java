@@ -21,6 +21,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/funcionarios")
 @AllArgsConstructor
@@ -50,7 +52,7 @@ public class FuncionarioController {
 
     @ApiOperation(value = "Save new Funcionario")
     @PostMapping
-    public ResponseEntity<FuncionarioDTO> salvarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO){  
+    public ResponseEntity<FuncionarioDTO> salvarFuncionario(@Valid @RequestBody FuncionarioDTO funcionarioDTO){
         Funcionario funcionario = convertEntity(funcionarioDTO);
         Funcionario salvo = funcionarioService.cadastrarFuncionario(funcionario);
         return new ResponseEntity<FuncionarioDTO>(convertDTO(salvo), HttpStatus.CREATED);
@@ -58,7 +60,7 @@ public class FuncionarioController {
 
     @ApiOperation(value = "Update Funcionario")
     @PutMapping("/{id}")
-    public ResponseEntity<FuncionarioDTO> atualizarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO, @PathVariable Long id){
+    public ResponseEntity<FuncionarioDTO> atualizarFuncionario(@Valid @RequestBody FuncionarioDTO funcionarioDTO, @PathVariable Long id){
         Funcionario funcionario = convertEntity(funcionarioDTO);
         Funcionario atualizado = funcionarioService.alterarFuncionario(funcionario, id);
         return ResponseEntity.ok(convertDTO(atualizado));
