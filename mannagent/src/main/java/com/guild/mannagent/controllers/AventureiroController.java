@@ -3,6 +3,7 @@ package com.guild.mannagent.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
 import org.hibernate.loader.plan.build.internal.CascadeStyleLoadPlanBuildingAssociationVisitationStrategy;
@@ -48,7 +49,7 @@ public class AventureiroController {
 
     @ApiOperation(value = "Save Aventureiro")
     @PostMapping
-    public ResponseEntity<AventureiroDTO> salvarAventureiro(@RequestBody AventureiroDTO aventureiroDTO){
+    public ResponseEntity<AventureiroDTO> salvarAventureiro(@Valid @RequestBody AventureiroDTO aventureiroDTO){
         Aventureiro aventureiro = convertEntity(aventureiroDTO);
         Aventureiro salvo = aventureiroService.createAventureiro(aventureiro);
         return new ResponseEntity<AventureiroDTO>(convertDTO(salvo), HttpStatus.CREATED);
@@ -56,7 +57,7 @@ public class AventureiroController {
 
     @ApiOperation(value = "Update Aventureiro")
     @PutMapping("/{id}")
-    public ResponseEntity<AventureiroDTO> atualizarAventureiro(@RequestBody AventureiroDTO aventureiroDTO, @PathVariable Long id){
+    public ResponseEntity<AventureiroDTO> atualizarAventureiro(@Valid @RequestBody AventureiroDTO aventureiroDTO, @PathVariable Long id){
         Aventureiro aventureiro = convertEntity(aventureiroDTO);
         Aventureiro atualizado = aventureiroService.updateAventureiro(aventureiro, id);
         return ResponseEntity.ok(convertDTO(atualizado));
