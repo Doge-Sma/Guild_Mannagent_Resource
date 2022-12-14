@@ -26,6 +26,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/administradores")
 @AllArgsConstructor
@@ -61,7 +63,7 @@ public class AdministradorController {
 
     @ApiOperation(value = "Save Administrador")
     @PostMapping
-    public ResponseEntity<AdministradorDTO> salvarAdministrador(@RequestBody AdministradorDTO administradorDTO){
+    public ResponseEntity<AdministradorDTO> salvarAdministrador(@Valid @RequestBody AdministradorDTO administradorDTO){
         Administrador administrador = convertEntity(administradorDTO);
         Administrador salvo = administradorService.cadastrarAdministrador(administrador);
         return new ResponseEntity<AdministradorDTO>(convertDTO(salvo), HttpStatus.CREATED);
@@ -69,7 +71,7 @@ public class AdministradorController {
 
     @ApiOperation (value = "Update Administrador")
     @PutMapping("/{id}")
-    public ResponseEntity<AdministradorDTO> atualizarAdministrador(@RequestBody AdministradorDTO administradorDTO, @PathVariable Long id){
+    public ResponseEntity<AdministradorDTO> atualizarAdministrador(@Valid @RequestBody AdministradorDTO administradorDTO, @PathVariable Long id){
         Administrador administrador = convertEntity(administradorDTO);
         Administrador atualizado = administradorService.atualizarAdministrador(id, administrador);
         return ResponseEntity.ok(convertDTO(atualizado));
